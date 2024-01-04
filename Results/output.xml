@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.9 on win32)" generated="20231121 21:11:47.564" rpa="false" schemaversion="4">
+<suite id="s1" name="Ebay" source="C:\developpement\robot-scripts\TryingSomeStuffEbay\tests\ebay.robot">
+<test id="s1-t1" name="The number of items should be 60" line="25">
+<kw name="Begin Test" library="Common" type="SETUP">
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>40s</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20231121 21:11:48.285" endtime="20231121 21:11:48.285"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.5s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231121 21:11:48.285" endtime="20231121 21:11:48.285"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231121 21:11:48.285" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231121 21:11:48.285" endtime="20231121 21:11:54.287"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231121 21:11:54.287" endtime="20231121 21:11:54.921"/>
+</kw>
+<status status="PASS" starttime="20231121 21:11:48.284" endtime="20231121 21:11:54.921"/>
+</kw>
+<kw name="Go to home page" library="EbayApp">
+<kw name="Navigate to home page" library="Home">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231121 21:11:54.921" level="INFO">Opening url 'https://www.ebay.com/'</msg>
+<status status="PASS" starttime="20231121 21:11:54.921" endtime="20231121 21:11:58.238"/>
+</kw>
+<status status="PASS" starttime="20231121 21:11:54.921" endtime="20231121 21:11:58.241"/>
+</kw>
+<kw name="Verify page loaded" library="Home">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Explore Popular Categories</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231121 21:11:59.769" level="INFO">Current page contains text 'Explore Popular Categories'.</msg>
+<status status="PASS" starttime="20231121 21:11:58.262" endtime="20231121 21:11:59.769"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Daily Deals</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231121 21:12:01.583" level="INFO">Current page contains text 'Daily Deals'.</msg>
+<status status="PASS" starttime="20231121 21:11:59.769" endtime="20231121 21:12:01.583"/>
+</kw>
+<status status="PASS" starttime="20231121 21:11:58.258" endtime="20231121 21:12:01.583"/>
+</kw>
+<status status="PASS" starttime="20231121 21:11:54.921" endtime="20231121 21:12:01.583"/>
+</kw>
+<kw name="Enter a product name and search" library="EbayApp">
+<kw name="Enter the product name" library="Header">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@id="gh-ac"]</arg>
+<arg>Mobile</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231121 21:12:01.587" level="INFO">Typing text 'Mobile' into text field 'xpath://input[@id="gh-ac"]'.</msg>
+<status status="PASS" starttime="20231121 21:12:01.585" endtime="20231121 21:12:03.343"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:01.585" endtime="20231121 21:12:03.343"/>
+</kw>
+<kw name="Click on search button" library="Header">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@id="gh-btn"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231121 21:12:03.343" level="INFO">Clicking element 'xpath://input[@id="gh-btn"]'.</msg>
+<status status="PASS" starttime="20231121 21:12:03.343" endtime="20231121 21:12:07.521"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:03.343" endtime="20231121 21:12:07.522"/>
+</kw>
+<kw name="Verfy page loaded" library="SearchResults">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>results for Mobile</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231121 21:12:08.729" level="INFO">Current page contains text 'results for Mobile'.</msg>
+<status status="PASS" starttime="20231121 21:12:07.523" endtime="20231121 21:12:08.731"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Save this search</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231121 21:12:09.879" level="INFO">Current page contains text 'Save this search'.</msg>
+<status status="PASS" starttime="20231121 21:12:08.733" endtime="20231121 21:12:09.880"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:07.522" endtime="20231121 21:12:09.880"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:01.584" endtime="20231121 21:12:09.880"/>
+</kw>
+<kw name="Check number of items displayed" library="EbayApp">
+<kw name="check items number" library="SearchResults">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${items-counter}</var>
+<arg>xpath://li[starts-with(@id,'item')]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231121 21:12:10.511" level="INFO">${items-counter} = 60</msg>
+<status status="PASS" starttime="20231121 21:12:09.885" endtime="20231121 21:12:10.511"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${items-counter}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231121 21:12:10.513" level="INFO">60</msg>
+<status status="PASS" starttime="20231121 21:12:10.511" endtime="20231121 21:12:10.513"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${items-counter}</arg>
+<arg>60</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20231121 21:12:10.515" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231121 21:12:10.514" endtime="20231121 21:12:10.516"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:09.885" endtime="20231121 21:12:10.516"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:09.880" endtime="20231121 21:12:10.516"/>
+</kw>
+<kw name="End Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231121 21:12:10.519" endtime="20231121 21:12:13.290"/>
+</kw>
+<status status="PASS" starttime="20231121 21:12:10.519" endtime="20231121 21:12:13.290"/>
+</kw>
+<doc>Items number</doc>
+<tag>0033</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20231121 21:11:48.282" endtime="20231121 21:12:13.291"/>
+</test>
+<doc>Main testsuite</doc>
+<status status="PASS" starttime="20231121 21:11:47.567" endtime="20231121 21:12:13.295"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">0033</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Ebay">Ebay</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
